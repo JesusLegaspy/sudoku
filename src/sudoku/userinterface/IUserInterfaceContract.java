@@ -1,6 +1,8 @@
 package sudoku.userinterface;
 
-public interface UserInterfaceContract {
+import sudoku.problemdomain.SudokuGame;
+
+public interface IUserInterfaceContract {
   interface EventListener {
     void onSudokuInput(int x, int y, int input);
 
@@ -12,7 +14,7 @@ public interface UserInterfaceContract {
 
     void updateSquare(int x, int y, int input);
 
-    void updateBoard(Sudoku game);
+    void updateBoard(SudokuGame game);
 
     void showDialog(String message);
 
