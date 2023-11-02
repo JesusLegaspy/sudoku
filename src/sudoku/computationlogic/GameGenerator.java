@@ -7,7 +7,7 @@ import sudoku.problemdomain.Coordinates;
 import static sudoku.problemdomain.SudokuGame.GRID_BOUNDARY;
 
 public class GameGenerator {
-  public static int[][] newGameGrid() {
+  public static int[][] getNewGameGrid() {
     return unsolveGame(getSolvedGame());
   }
 
