@@ -1,6 +1,7 @@
 package sudoku.userinterface.logic;
 
 import java.io.IOException;
+import sudoku.computationlogic.GameLogic;
 import sudoku.constants.GameState;
 import sudoku.constants.Messages;
 import sudoku.problemdomain.IStorage;
@@ -23,9 +24,7 @@ public class ControlLogic implements IUserInterfaceContract.EventListener {
       int[][] newGridState = gameData.getCopyOfGridState();
       newGridState[x][y] = input;
 
-      gameData = new SudokuGame(
-          GameLogic.checkForCompletion(newGridState),
-          newGridState);
+      gameData = new SudokuGame(GameLogic.checkForCompletion(newGridState), newGridState);
 
       storage.updateGameData(gameData);
 
@@ -43,8 +42,7 @@ public class ControlLogic implements IUserInterfaceContract.EventListener {
   @Override
   public void onDialogClick() {
     try {
-      storage.updateGameData(
-          GameLogic.getNewGame());
+      storage.updateGameData(GameLogic.getNewGame());
       view.updateBoard(storage.getGameData());
     } catch (IOException e) {
       view.showError(Messages.ERROR);
