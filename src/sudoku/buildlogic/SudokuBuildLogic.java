@@ -2,6 +2,7 @@ package sudoku.buildlogic;
 
 import java.io.IOException;
 import sudoku.computationlogic.GameLogic;
+import sudoku.persistence.LocalStorageImpl;
 import sudoku.problemdomain.IStorage;
 import sudoku.problemdomain.SudokuGame;
 import sudoku.userinterface.IUserInterfaceContract;

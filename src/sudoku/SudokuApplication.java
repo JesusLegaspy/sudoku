@@ -4,6 +4,7 @@ import java.io.IOException;
 
 import javafx.application.Application;
 import javafx.stage.Stage;
+import sudoku.buildlogic.SudokuBuildLogic;
 import sudoku.userinterface.IUserInterfaceContract;
 
 public class SudokuApplication extends Application {
