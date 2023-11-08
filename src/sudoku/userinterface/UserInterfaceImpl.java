@@ -21,8 +21,7 @@ import sudoku.userinterface.IUserInterfaceContract.EventListener;
 import sudoku.constants.GameState;
 import sudoku.problemdomain.Coordinates;;
 
-public class UserInterfaceImpl implements IUserInterfaceContract.View,
-    EventHandler<KeyEvent> {
+public class UserInterfaceImpl implements IUserInterfaceContract.View, EventHandler<KeyEvent> {
 
   private final Stage stage;
   private final Group root;
@@ -42,7 +41,7 @@ public class UserInterfaceImpl implements IUserInterfaceContract.View,
   public UserInterfaceImpl(Stage stage) {
     this.stage = stage;
     this.root = new Group();
-    this.textFieldCoordinates = new HashMap<>(0, 0);
+    this.textFieldCoordinates = new HashMap<>();
     initializeUserInterface();
   }
 
@@ -66,17 +65,10 @@ public class UserInterfaceImpl implements IUserInterfaceContract.View,
         thickness = 2;
       }
 
-      Rectangle verticleLine = getLine(
-          64 * index + xAndY,
-          BOARD_PADDING,
-          BOARD_X_AND_Y,
-          thickness);
+      Rectangle verticleLine = getLine(64 * index + xAndY, BOARD_PADDING, BOARD_X_AND_Y, thickness);
 
-      Rectangle horizontalLine = getLine(
-          BOARD_PADDING,
-          64 * index + xAndY,
-          thickness,
-          BOARD_X_AND_Y);
+      Rectangle horizontalLine =
+          getLine(BOARD_PADDING, 64 * index + xAndY, thickness, BOARD_X_AND_Y);
 
       root.getChildren().addAll(verticleLine, horizontalLine);
 
@@ -157,8 +149,7 @@ public class UserInterfaceImpl implements IUserInterfaceContract.View,
 
     String value = Integer.toString(input);
 
-    if (value.equals("0"))
-      value = "";
+    if (value.equals("0")) value = "";
 
     tile.textProperty().setValue(value);
   }
@@ -171,8 +162,7 @@ public class UserInterfaceImpl implements IUserInterfaceContract.View,
 
         String value = Integer.toString(game.getCopyOfGridState()[xIndex][yIndex]);
 
-        if (value.equals("0"))
-          value = "";
+        if (value.equals("0")) value = "";
 
         tile.setText(value);
 
@@ -195,8 +185,7 @@ public class UserInterfaceImpl implements IUserInterfaceContract.View,
     Alert dialog = new Alert(Alert.AlertType.CONFIRMATION, message, ButtonType.OK);
     dialog.showAndWait();
 
-    if (dialog.getResult() == ButtonType.OK)
-      listener.onDialogClick();
+    if (dialog.getResult() == ButtonType.OK) listener.onDialogClick();
   }
 
   @Override
@@ -228,9 +217,7 @@ public class UserInterfaceImpl implements IUserInterfaceContract.View,
   }
 
   private void handleInput(int value, Object source) {
-    listener.onSudokuInput(
-        ((SudokuTextField) source).getX(),
-        ((SudokuTextField) source).getY(),
+    listener.onSudokuInput(((SudokuTextField) source).getX(), ((SudokuTextField) source).getY(),
         value);
   }
 }

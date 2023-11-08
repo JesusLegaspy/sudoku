@@ -20,7 +20,7 @@ public class LocalStorageImpl implements IStorage {
       objectOutputStream.writeObject(game);
       objectOutputStream.close();
     } catch (IOException e) {
-      throw new IOException("Unalbe to access Game Data");
+      throw new IOException("Unable to access Game Data");
     }
   }
 

@@ -27,8 +27,7 @@ public class SudokuSolver {
         } else {
           index++;
 
-          if (index == 39)
-            return true;
+          if (index == 39) return true;
 
           input = 10;
         }
@@ -44,8 +43,7 @@ public class SudokuSolver {
       for (int x = 0; x < GRID_BOUNDARY; x++) {
         if (puzzle[x][y] == 0) {
           emptyCells[iterator] = new Coordinates(x, y);
-          if (iterator == 39)
-            return emptyCells;
+          if (iterator == 39) return emptyCells;
           iterator++;
         }
       }
